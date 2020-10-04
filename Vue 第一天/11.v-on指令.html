@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- v-on：用于注册事件
+    1.内联语句，将要执行的袋子，直接写在''里面，好处：简洁简单，适用于特别简单的代码
+     v-on:事件名=“要执行的代码”
+     
+     2.指定成method中的函数
+     v-on:事件名='method中的函数'
+
+     3.指定成method中的函数，并且传参
+     v-on:事件名='method中的函数(参数1，参数2，参数3...)'
+
+     简写：v-on 可以简写@
+     @事件名 -->
+    <!-- 
+     小结：
+     1.@事件名='要执行的代码'
+     2.@事件名='method中的函数'
+     3.@事件名='method中的函数(参数1，参数2...)' -->
+
+    <div id="app">
+      <button>控制h1的显示隐藏</button>
+      <button>指定成methods中的函数</button>
+      <button>指定成methods中的函数, 并传参</button>
+      <hr />
+      <button>控制h1的显示隐藏</button>
+      <button>指定成methods中的函数</button>
+      <button>指定成methods中的函数, 并传参</button>
+      <hr />
+      <button>@简写, 注册mouseenter事件</button>
+      <h1>我是内容</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          isShow: true
+        },
+        //方法放到methods，methods中的this，默认指向vm实例
+        methods: {
+          fn1() {
+            this.isShow = !this.isShow;
+          },
+          fn2(num) {
+            console.log(num);
+            console.log("这是fn2");
+          },
+          fn3() {
+            alert("鼠标滑入了");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
